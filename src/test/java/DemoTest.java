@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Array;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DemoTest {
@@ -27,6 +29,15 @@ class DemoTest {
     public void test3(){
         String actual = demo.greet("JERRY");
         String expected = "HELLO, JERRY";
+        assertEquals(expected, actual);
+    }
+
+    @DisplayName("Requirement 4")
+    @Test
+    public void test4(){
+        String[] names = {"Thomas", "Benjamin"};
+        String actual = demo.greet(names);
+        String expected = "Hello, Thomas and Benjamin";
         assertEquals(expected, actual);
     }
 

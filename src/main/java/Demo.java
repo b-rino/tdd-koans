@@ -1,12 +1,35 @@
 public class Demo {
 
-    public String greet(String name) {
-        if (name == null) {
+    public String greet(Object o) {
+        if (o == null) {
             return "Hello, my friend";
         }
-        else if (name.equals(name.toUpperCase())){
-            return "HELLO, " + name;
+        else if (o instanceof String) {
+            String name = (String)o;
+
+            if (name.equals(name.toUpperCase())) {
+                return "HELLO, " + name;
+            }
+
+            return "Hello, " + name;
         }
-        return "Hello, " + name;
+        else if (o instanceof String[]) {
+            String str = "";
+            String[] names = ((String[]) o);
+
+            for (int i = 0; i < names.length; i++) {
+                if (i == names.length-1) {
+                    str += names[i];
+                }
+                else {
+                    str += names[i];
+                    str += " and ";
+                }
+            }
+
+            return "Hello, " + str;
+        }
+
+        return "";
     }
 }
