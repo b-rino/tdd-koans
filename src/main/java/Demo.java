@@ -78,8 +78,15 @@ public class Demo {
 
     private List<String> splitGreeting(List<String> names) {
         ArrayList<String> correctedList = new ArrayList<>();
+
         for (int i = 0; i < names.size(); i++) {
             if (names.get(i).contains(",")) {
+
+                if (names.get(i).contains("\"")) {
+                    correctedList.add(names.get(i).replace("\"", ""));
+                    continue;
+                }
+
                 String[] splitData = names.get(i).split(",");
                 for(String name : splitData){
                     correctedList.add(name.trim());
