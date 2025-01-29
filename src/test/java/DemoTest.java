@@ -58,6 +58,15 @@ class DemoTest {
         assertEquals(expected, actual);
     }
 
+    @DisplayName("Requirement 7")
+    @Test
+    public void test7(){
+        String[] names = {"Thomas", "Benjamin, Peter"};
+        String actual = demo.greet(names);
+        String expected = "Hello, Thomas, Benjamin and Peter";
+        assertEquals(expected, actual);
+    }
+
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
     }

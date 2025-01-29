@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Demo {
@@ -21,8 +22,9 @@ public class Demo {
         String str = "Hello, ";
         List<String> lowercaseNames = new ArrayList<>();
         List<String> uppercaseNames = new ArrayList<>();
+        List<String> correctedNames = splitGreeting(Arrays.stream(names).toList());
 
-        for (String name : names) {
+        for (String name : correctedNames) {
             if (name.equals(name.toUpperCase())) {
                 uppercaseNames.add(name);
             }
@@ -72,5 +74,20 @@ public class Demo {
         str += "!";
 
         return str;
+    }
+
+    private List<String> splitGreeting(List<String> names) {
+        ArrayList<String> correctedList = new ArrayList<>();
+        for (int i = 0; i < names.size(); i++) {
+            if (names.get(i).contains(",")) {
+                String[] splitData = names.get(i).split(",");
+                for(String name : splitData){
+                    correctedList.add(name.trim());
+                }
+                continue;
+            }
+            correctedList.add(names.get(i));
+        }
+        return correctedList;
     }
 }
