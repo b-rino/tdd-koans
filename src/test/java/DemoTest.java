@@ -22,6 +22,14 @@ class DemoTest {
         assertEquals(expected, actual);
     }
 
+    @DisplayName("Requirement 3")
+    @Test
+    public void test3(){
+        String actual = demo.greet("JERRY");
+        String expected = "HELLO, JERRY";
+        assertEquals(expected, actual);
+    }
+
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
     }
